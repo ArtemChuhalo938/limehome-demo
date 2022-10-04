@@ -13,7 +13,7 @@ export const MarkerWrapper = styled.View<{ selected: boolean }>`
 export const MarkerTitle = styled.Text`
   font-size: 21px;
   align-items: center;
-  color: #fff;
+  color: ${({ theme }) => theme.color.white};
 `;
 
 export const PropertyWrapper = styled.TouchableOpacity`
@@ -22,7 +22,7 @@ export const PropertyWrapper = styled.TouchableOpacity`
   z-index: 99999;
   flex-direction: row;
   margin: 20px;
-  border: 0.5px solid #4a4a4c;
+  border: 0.5px solid ${({ theme }) => theme.color.text};
 `;
 
 export const PropertyImageWrapper = styled.View``;
@@ -31,7 +31,7 @@ export const StarWrapper = styled.View`
   position: absolute;
   right: 0;
   z-index: 9999999;
-  background: #f7f1ea;
+  background: ${({ theme }) => theme.color.background}
   flex-direction: row;
   align-items: center;
   padding: 2px;
@@ -42,7 +42,7 @@ export const StarWrapper = styled.View`
 export const StarText = styled.Text``;
 
 export const PropertyDescriptionWrapper = styled.View`
-  background: #f7f1ea;
+  background: ${({ theme }) => theme.color.background}
   flex: 1;
   padding: 10px;
   height: 120px;
@@ -51,7 +51,7 @@ export const PropertyDescriptionWrapper = styled.View`
 export const PropertyTitle = styled.Text`
   font-size: 21px;
   font-weight: bold;
-  color: #4a4a4c;
+  color: ${({ theme }) => theme.color.text}
   padding-bottom: 10px;
 `;
 
@@ -61,7 +61,8 @@ export const PropertyDescriptionContainer = styled.View`
 `;
 export const PropertyDescriptionText = styled.Text`
   font-size: 18px;
-  color: #4a4a4c;
+  color: ${({ theme }) => theme.color.text};
+  flex: 1
 `;
 
 export const FromTitle = styled.Text`
@@ -69,6 +70,6 @@ export const FromTitle = styled.Text`
 `;
 
 export const FromValue = styled.Text`
-  color: #b3641c;
+  color: ${({ theme }) => theme.color.brown}
   font-weight: bold;
 `;

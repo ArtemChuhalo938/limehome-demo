@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React, { FC, ReactElement } from 'react';
 import {
   TabBarItemContainerWrapper,
   TabBarItemContentWrapper,
@@ -8,7 +8,7 @@ import {
 
 interface TabBarItemProps {
   title: string;
-  icon: any;
+  icon?: ReactElement;
   focused: boolean;
 }
 

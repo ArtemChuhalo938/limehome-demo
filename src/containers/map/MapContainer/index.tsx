@@ -3,6 +3,7 @@ import MapView, { Marker } from 'react-native-maps';
 import { Dimensions, StyleSheet, Image } from 'react-native';
 import { MaterialIcons } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
+import { StackNavigationProp } from '@react-navigation/stack';
 import {
   FromTitle,
   FromValue,
@@ -21,6 +22,7 @@ import {
 import ScreenProps from '../../../@types/screen';
 import { useMap } from '../../hooks/Map';
 import Divider from '../../../components/Divider';
+import { Route } from '../../../@types/Route';
 
 interface MapContainerProps extends ScreenProps {}
 
@@ -35,7 +37,7 @@ export const styles = StyleSheet.create({
 
 const MapContainer: FC<MapContainerProps> = () => {
   const { fetchProperties } = useMap();
-  const { navigate } = useNavigation<any>();
+  const { navigate } = useNavigation<StackNavigationProp<Route>>();
   const [properties, setProperties] = useState([]);
   const [selectedProperty, setSelectedProperty] = useState<any>(null);
 
@@ -55,6 +57,7 @@ const MapContainer: FC<MapContainerProps> = () => {
       >
         <MarkerWrapper selected={property.id === selectedProperty?.id}>
           <MarkerTitle>
+            {/* todo: looks like some kind of error with the backend. Get always null for lowest_price_per_night */}
             {selectedProperty?.lowest_price_per_night || 0}€
           </MarkerTitle>
         </MarkerWrapper>
@@ -97,6 +100,7 @@ const MapContainer: FC<MapContainerProps> = () => {
               }}
             />
             <StarWrapper>
+              {/* TODO Didn't find field in response object to get rating value. Mocked data  */}
               <StarText>4.5</StarText>
               <MaterialIcons name="star" size={24} color="#b3641c" />
             </StarWrapper>
@@ -106,7 +110,14 @@ const MapContainer: FC<MapContainerProps> = () => {
               {selectedProperty.name}
             </PropertyTitle>
             <PropertyDescriptionContainer>
-              <MaterialIcons name="location-on" size={24} color="#b3641c" />
+              <MaterialIcons
+                name="location-on"
+                size={24}
+                color="#b3641c"
+                style={{
+                  width: 24,
+                }}
+              />
               <PropertyDescriptionText numberOfLines={1}>
                 {Number(selectedProperty.distance).toFixed(2)} km from city
                 center
@@ -116,7 +127,7 @@ const MapContainer: FC<MapContainerProps> = () => {
             <FromTitle numberOfLines={1}>
               From
               <FromValue>
-                {' '}
+                {/* todo: looks like some kind of error with the backend. Get always null for lowest_price_per_night */}{' '}
                 {selectedProperty.lowest_price_per_night || 0}€/Night
               </FromValue>
             </FromTitle>

@@ -12,12 +12,12 @@ export const CloseButtonWrapper = styled.TouchableOpacity`
   margin: ${() => (Platform.OS === 'ios' ? '40px 20px 20px 20px' : '20px')};
   padding: 10px;
   border-radius: 5px;
-  background: #f7f1ea;
+  background: ${({ theme }) => theme.color.background};
 `;
 
 export const ContentWrapper = styled.ScrollView`
   flex: 1;
-  background: #f7f1ea;
+  background: ${({ theme }) => theme.color.background};
 `;
 
 export const TitleContainer = styled.View`
@@ -29,7 +29,8 @@ export const TitleContainer = styled.View`
 export const Title = styled.Text`
   font-size: 24px;
   font-weight: bold;
-  color: #4a4a4c;
+  color: ${({ theme }) => theme.color.text};
+  flex: 1;
 `;
 
 export const StarWrapper = styled.View`
@@ -38,13 +39,13 @@ export const StarWrapper = styled.View`
   padding: 3px 10px;
   border-radius: 5px;
   margin: 10px;
-  border: 1px solid #4a4a4c;
+  border: 1px solid ${({ theme }) => theme.color.text};
 `;
 
 export const StarText = styled.Text`
   font-size: 24px;
   font-weight: bold;
-  color: #4a4a4c;
+  color: ${({ theme }) => theme.color.text}
   padding-right: 5px;
 `;
 
@@ -54,12 +55,12 @@ export const PropertyLocationContainer = styled.View`
 `;
 export const PropertyLocationText = styled.Text`
   font-size: 18px;
-  color: #4a4a4c;
+  color: ${({ theme }) => theme.color.text};
 `;
 
 export const Description = styled.Text`
   font-size: 18px;
-  color: #4a4a4c;
+  color: ${({ theme }) => theme.color.text}
   padding-bottom: 10px;
 `;
 
@@ -68,7 +69,7 @@ export const RoomTypes = styled.View``;
 export const RoomTypesTitle = styled.Text`
   font-size: 21px;
   font-weight: bold;
-  color: #4a4a4c;
+  color: ${({ theme }) => theme.color.text}
   padding: 10px 0 10px;
 `;
 
@@ -78,7 +79,7 @@ export const RoomItemsWrapper = styled.View`
 `;
 
 export const RoomItemWrapper = styled.View`
-  background: #c9cbad;
+  background: ${({ theme }) => theme.color.yellow}
   border-radius: 5px;
   padding: 5px 10px;
   margin: 0 5px 5px 0;
@@ -86,11 +87,11 @@ export const RoomItemWrapper = styled.View`
 
 export const RoomItemTitle = styled.Text`
   font-size: 18px;
-  color: #4a4a4c;
+  color: ${({ theme }) => theme.color.text};
 `;
 
 export const FooterWrapper = styled.View`
-  background: #c9cbad;
+  background: ${({ theme }) => theme.color.yellow}
   padding: 20px;
   justify-content: space-between;
   flex-direction: row;
@@ -100,19 +101,11 @@ export const FooterWrapper = styled.View`
 export const FromTitle = styled.Text``;
 
 export const FromValue = styled.Text`
-  color: #b3641c;
+  color: ${({ theme }) => theme.color.brown};
 `;
 
-export const ExploreButton = styled.TouchableOpacity`
+export const ActivityIndicatorWrapper = styled.View`
+  flex: 1;
   align-items: center;
-  flex-direction: row;
-  background: #4b6446;
-  padding: 10px 20px;
-  border-radius: 5px;
-`;
-
-export const ExploreTitle = styled.Text`
-  font-size: 24px;
-  padding-right: 10px;
-  color: #fff;
+  justify-content: center;
 `;

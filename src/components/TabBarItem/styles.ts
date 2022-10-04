@@ -1,7 +1,6 @@
 import styled from 'styled-components/native';
 
 export const TabBarItemContainerWrapper = styled.View<{
-  bottom: number;
   focused: boolean;
 }>`
   position: absolute;

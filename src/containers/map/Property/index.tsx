@@ -1,13 +1,12 @@
-import React, { FC, useState, useMemo } from 'react';
-import { Dimensions, StyleSheet, Image } from 'react-native';
+import React, { FC, useMemo, useState } from 'react';
+import { Dimensions, StyleSheet, Image, ActivityIndicator } from 'react-native';
 import { MaterialIcons } from '@expo/vector-icons';
 import { RouteProp, useNavigation, useRoute } from '@react-navigation/native';
 import {
+  ActivityIndicatorWrapper,
   CloseButtonWrapper,
   ContentWrapper,
   Description,
-  ExploreButton,
-  ExploreTitle,
   FooterWrapper,
   FromTitle,
   FromValue,
@@ -28,6 +27,7 @@ import {
 import ScreenProps from '../../../@types/screen';
 import { useMap } from '../../hooks/Map';
 import Divider from '../../../components/Divider';
+import Button from '../../../components/Button';
 import { Property } from '../../../@types/Property';
 
 interface MapContainerProps extends ScreenProps {}
@@ -82,6 +82,7 @@ const PropertyContainer: FC<MapContainerProps> = () => {
         <TitleContainer>
           <Title>{property.name}</Title>
           <StarWrapper>
+            {/* TODO Didn't find field in response object to get rating value. Mocked data */}
             <StarText>4.5</StarText>
             <MaterialIcons name="star" size={24} color="#b3641c" />
           </StarWrapper>
@@ -100,6 +101,7 @@ const PropertyContainer: FC<MapContainerProps> = () => {
             {property.unit_groups.map((unit_group) => (
               <RoomItemWrapper>
                 <RoomItemTitle>
+                  {/* TODO Need clarification The logic of displaying the the value (3x2, 3x1, etc.) is not entirely clear. We have only one bedroom_count value */}
                   {unit_group.bedroom_count}x1 Bedroom suites
                 </RoomItemTitle>
               </RoomItemWrapper>
@@ -110,14 +112,22 @@ const PropertyContainer: FC<MapContainerProps> = () => {
       <FooterWrapper>
         <FromTitle>
           From
+          {/* todo: looks like some kind of error with the backend. Get always null for lowest_price_per_night */}
           <FromValue> {property.lowest_price_per_night || 0}€/Night</FromValue>
         </FromTitle>
-        <ExploreButton>
-          <ExploreTitle>EXPLORE</ExploreTitle>
-          <MaterialIcons name="arrow-right-alt" size={24} color="white" />
-        </ExploreButton>
+        <Button
+          title="EXPLORE"
+          onPress={() => {}}
+          iconRight={
+            <MaterialIcons name="arrow-right-alt" size={24} color="white" />
+          }
+        />
       </FooterWrapper>
     </ScreenWrapper>
-  ) : null;
+  ) : (
+    <ActivityIndicatorWrapper>
+      <ActivityIndicator size={100} />
+    </ActivityIndicatorWrapper>
+  );
 };
 export default PropertyContainer;
