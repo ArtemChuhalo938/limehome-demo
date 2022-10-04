@@ -62,7 +62,7 @@ const MapContainer: FC<MapContainerProps> = () => {
     ));
 
   const goToProperty = () => {
-    navigate('Property', { id: selectedProperty.id });
+    navigate('PropertyScreen', { id: selectedProperty.id });
   };
 
   return (

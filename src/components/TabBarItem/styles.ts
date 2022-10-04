@@ -4,7 +4,8 @@ export const TabBarItemContainerWrapper = styled.View<{
   bottom: number;
   focused: boolean;
 }>`
-  height: ${({ bottom }) => `${60 + bottom}px`};
+  position: absolute;
+  height: 60px;
   background: ${({ focused }) => (focused ? '#5a7151' : 'transparent')};
   width: 70px;
   border-radius: 5px;

@@ -1,3 +1,4 @@
+import { Platform } from 'react-native';
 import styled from 'styled-components/native';
 
 export const ScreenWrapper = styled.View`
@@ -8,7 +9,7 @@ export const HeaderWrapper = styled.View``;
 
 export const CloseButtonWrapper = styled.TouchableOpacity`
   position: absolute;
-  margin: 20px;
+  margin: ${() => (Platform.OS === 'ios' ? '40px 20px 20px 20px' : '20px')};
   padding: 10px;
   border-radius: 5px;
   background: #f7f1ea;
@@ -90,7 +91,7 @@ export const RoomItemTitle = styled.Text`
 
 export const FooterWrapper = styled.View`
   background: #c9cbad;
-  padding: 10px 20px;
+  padding: 20px;
   justify-content: space-between;
   flex-direction: row;
   align-items: center;

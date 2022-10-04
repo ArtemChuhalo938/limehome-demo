@@ -8,8 +8,9 @@ import ProfileStack from '../Profile';
 import MapStack from '../Map';
 import SearchStack from '../Search';
 import TabBarItem from '../../components/TabBarItem';
+import { getTabBarVisibility } from '../../utils/renderCommonTools';
 
-const renderTabBarIcon = ({ route, focused, insets }: any) => {
+const renderTabBarIcon = ({ route, focused }: any) => {
   let icon;
   if (route.name === 'SearchStack') {
     icon = <MaterialIcons name="search" size={24} color="white" />;
@@ -22,36 +23,13 @@ const renderTabBarIcon = ({ route, focused, insets }: any) => {
   }
   switch (route.name) {
     case 'SearchStack':
-      return (
-        <TabBarItem
-          insets={insets}
-          title="Search"
-          icon={icon}
-          focused={focused}
-        />
-      );
+      return <TabBarItem title="Search" icon={icon} focused={focused} />;
     case 'MapStack':
-      return (
-        <TabBarItem insets={insets} title="Map" icon={icon} focused={focused} />
-      );
+      return <TabBarItem title="Map" icon={icon} focused={focused} />;
     case 'SavedStack':
-      return (
-        <TabBarItem
-          insets={insets}
-          title="Saved"
-          icon={icon}
-          focused={focused}
-        />
-      );
+      return <TabBarItem title="Saved" icon={icon} focused={focused} />;
     case 'ProfileStack':
-      return (
-        <TabBarItem
-          insets={insets}
-          title="Profile"
-          icon={icon}
-          focused={focused}
-        />
-      );
+      return <TabBarItem title="Profile" icon={icon} focused={focused} />;
     default:
       return <View />;
   }
@@ -68,7 +46,7 @@ export default function BottomNavigator() {
   return (
     <Tab.Navigator
       initialRouteName="MapStack"
-      screenOptions={({ route }) => ({
+      screenOptions={({ route, navigation }) => ({
         tabBarIcon: ({ focused }) =>
           renderTabBarIcon({ route, focused, insets }),
         tabBarStyle: {
@@ -77,6 +55,7 @@ export default function BottomNavigator() {
           backgroundColor: '#4b6446',
           borderTopLeftRadius: 10,
           borderTopRightRadius: 10,
+          display: getTabBarVisibility(route.name, navigation),
         },
         tabBarBackground: () => renderTabBackground(),
         tabBarHideOnKeyboard: true,
