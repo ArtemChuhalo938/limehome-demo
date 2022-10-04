@@ -1,0 +1,22 @@
+export type Color = {
+  black: string;
+  white: string;
+  gray: string;
+  grayLight: string;
+  grayMedium: string;
+  grayDark: string;
+  grayText: string;
+  purple: string;
+  purpleLight: string;
+  purpleDark: string;
+  green: string;
+  greenLight: string;
+  blue: string;
+  blueLight: string;
+  yellow: string;
+  red: string;
+  cream: string;
+  creamLight: string;
+  lemon: string;
+  transparent: string;
+};
