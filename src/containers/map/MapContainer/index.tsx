@@ -54,7 +54,9 @@ const MapContainer: FC<MapContainerProps> = () => {
         onPress={() => setSelectedProperty(property)}
       >
         <MarkerWrapper selected={property.id === selectedProperty?.id}>
-          <MarkerTitle>{selectedProperty?.lowest_price_per_night || 0}€</MarkerTitle>
+          <MarkerTitle>
+            {selectedProperty?.lowest_price_per_night || 0}€
+          </MarkerTitle>
         </MarkerWrapper>
       </Marker>
     ));

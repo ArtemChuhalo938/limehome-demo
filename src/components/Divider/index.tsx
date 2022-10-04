@@ -1,6 +1,6 @@
-import styled from "styled-components/native";
+import styled from 'styled-components/native';
 
-export const name = "Divider";
+export const name = 'Divider';
 export default styled.View<{
   isVertical?: boolean;
   lineWidth?: number;
@@ -11,17 +11,17 @@ export default styled.View<{
     isVertical
       ? maxWidth
         ? `${maxWidth}px`
-        : "100%"
+        : '100%'
       : lineWidth
       ? `${lineWidth}px`
-      : "1px"};
+      : '1px'};
   background-color: ${({ color, theme }) => color || theme.color.black};
   width: ${({ isVertical, lineWidth, maxWidth }) =>
     isVertical
       ? lineWidth
         ? `${lineWidth}px`
-        : "2px"
+        : '2px'
       : maxWidth
       ? `${maxWidth}px`
-      : "100%"};
+      : '100%'};
 `;

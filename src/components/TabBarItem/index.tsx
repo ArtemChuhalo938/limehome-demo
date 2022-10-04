@@ -1,4 +1,4 @@
-import React, {FC} from 'react';
+import React, { FC } from 'react';
 import {
   TabBarItemContainerWrapper,
   TabBarItemContentWrapper,
@@ -10,7 +10,7 @@ interface TabBarItemProps {
   title: string;
   icon: any;
   focused: boolean;
-  insets: any
+  insets: any;
 }
 
 const TabBarItem: FC<TabBarItemProps> = ({ insets, title, icon, focused }) => {
@@ -26,6 +26,6 @@ const TabBarItem: FC<TabBarItemProps> = ({ insets, title, icon, focused }) => {
       </TabBarItemContentWrapper>
     </TabBarItemContainerWrapper>
   );
-}
+};
 
 export default TabBarItem;

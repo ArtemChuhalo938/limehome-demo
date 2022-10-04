@@ -18,7 +18,7 @@ export default function MapStack() {
         component={PropertyScreen}
         options={{
           headerShown: false,
-          animationEnabled: false
+          animationEnabled: false,
         }}
       />
     </Stack.Navigator>

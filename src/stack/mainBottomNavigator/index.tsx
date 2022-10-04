@@ -87,9 +87,6 @@ export default function BottomNavigator() {
       <Tab.Screen
         name="SearchStack"
         component={SearchStack}
-        listeners={{
-          tabPress: () => console.log('Search tab press'),
-        }}
         options={() => ({
           headerShown: false,
         })}
@@ -97,9 +94,6 @@ export default function BottomNavigator() {
       <Tab.Screen
         name="MapStack"
         component={MapStack}
-        listeners={{
-          tabPress: () => console.log('Map tab press'),
-        }}
         options={() => ({
           headerShown: false,
         })}
@@ -107,9 +101,6 @@ export default function BottomNavigator() {
       <Tab.Screen
         name="SavedStack"
         component={SavedStack}
-        listeners={{
-          tabPress: () => console.log('Saved tab press'),
-        }}
         options={() => ({
           headerShown: false,
         })}
@@ -117,9 +108,6 @@ export default function BottomNavigator() {
       <Tab.Screen
         name="ProfileStack"
         component={ProfileStack}
-        listeners={{
-          tabPress: () => console.log('Profile tab press'),
-        }}
         options={() => ({
           headerShown: false,
         })}

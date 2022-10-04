@@ -1,5 +1,4 @@
-import React, { FC, useEffect, useState } from 'react';
-import MapView, { Marker } from 'react-native-maps';
+import React, { FC, useState, useMemo } from 'react';
 import { Dimensions, StyleSheet, Image } from 'react-native';
 import { MaterialIcons } from '@expo/vector-icons';
 import { RouteProp, useNavigation, useRoute } from '@react-navigation/native';
@@ -13,15 +12,8 @@ import {
   FromTitle,
   FromValue,
   HeaderWrapper,
-  MarkerTitle,
-  PropertyDescriptionContainer,
-  PropertyDescriptionText,
-  PropertyDescriptionWrapper,
-  PropertyImageWrapper,
   PropertyLocationContainer,
   PropertyLocationText,
-  PropertyTitle,
-  PropertyWrapper,
   RoomItemsWrapper,
   RoomItemTitle,
   RoomItemWrapper,
@@ -36,6 +28,7 @@ import {
 import ScreenProps from '../../../@types/screen';
 import { useMap } from '../../hooks/Map';
 import Divider from '../../../components/Divider';
+import { Property } from '../../../@types/Property';
 
 interface MapContainerProps extends ScreenProps {}
 
@@ -60,23 +53,16 @@ const PropertyContainer: FC<MapContainerProps> = () => {
   const { params } = useRoute<RouteProp<PropertyRouteInterface, 'params'>>();
   const { fetchPropertyById } = useMap();
   const { goBack } = useNavigation();
-  const [property, setProperty] = useState();
-
-  useEffect(() => {
+  const [property, setProperty] = useState<Property>();
+  const isPropertyLoaded: boolean = useMemo(() => {
     if (params?.id) {
-      fetchPropertyById(params.id).then((data) => setProperty(data));
+      fetchPropertyById(params.id).then((data: Property) => setProperty(data));
+      return true;
     }
+    return false;
   }, [params.id]);
 
-  console.log('property:', property);
-
-  if (!property) {
-    return null;
-  }
-
-  console.log('property.unit_groups:', property.unit_groups[0]);
-
-  return (
+  return isPropertyLoaded && property ? (
     <ScreenWrapper>
       <HeaderWrapper>
         <Image
@@ -132,6 +118,6 @@ const PropertyContainer: FC<MapContainerProps> = () => {
         </ExploreButton>
       </FooterWrapper>
     </ScreenWrapper>
-  );
+  ) : null;
 };
 export default PropertyContainer;

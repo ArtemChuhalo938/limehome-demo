@@ -96,8 +96,7 @@ export const FooterWrapper = styled.View`
   align-items: center;
 `;
 
-export const FromTitle = styled.Text`
-`;
+export const FromTitle = styled.Text``;
 
 export const FromValue = styled.Text`
   color: #b3641c;

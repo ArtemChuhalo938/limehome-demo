@@ -1,5 +1,5 @@
-import {useState} from "react";
-import {getProperties, getPropertyById} from "../../services/api";
+import { useState } from 'react';
+import { getProperties, getPropertyById } from '../../services/api';
 
 interface Map {
   fetchProperties: () => Promise<any>;

@@ -4,11 +4,11 @@ export const ScreenWrapper = styled.View`
   flex: 1;
 `;
 
-export const MarkerWrapper = styled.View<{selected: boolean}>`
+export const MarkerWrapper = styled.View<{ selected: boolean }>`
   padding: 10px;
-  border-radius: ${({selected}) => selected ? 10 : 5}px;
-  background: ${({selected}) => selected ? "#b3641c" : "#4a4a4c"};
-`
+  border-radius: ${({ selected }) => (selected ? 10 : 5)}px;
+  background: ${({ selected }) => (selected ? '#b3641c' : '#4a4a4c')};
+`;
 
 export const MarkerTitle = styled.Text`
   font-size: 21px;
@@ -37,7 +37,7 @@ export const StarWrapper = styled.View`
   padding: 2px;
   border-radius: 5px;
   margin: 10px;
-`
+`;
 
 export const StarText = styled.Text``;
 
